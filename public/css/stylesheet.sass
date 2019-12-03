@@ -1,0 +1,27 @@
+.loading
+    background: lightgrey
+    padding: 15px
+    position: fixed
+    border-radius: 4px
+    left: 50%
+    top: 50%
+    text-align: center
+    margin: -40px 0 0 -50px
+    z-index: 2000
+    display: none
+
+.form-group.required label:after
+    content: " *"
+    color: red
+    font-weight: bold
+
+.wrapper
+    display: grid
+    grid-template-columns: repeat(12, 1fr)
+    grid-gap: 20px
+
+.col-sm-7
+    grid-column: span 7
+
+.col-sm-5
+    grid-column: span 5

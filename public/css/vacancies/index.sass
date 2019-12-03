@@ -1,0 +1,316 @@
+/*index.sass
+  Version: 1.4
+  Made by: Tim Minderman*/
+
+$grid: grid
+$header-font: 25px
+$td-size: 15px
+
+/*Color variables*/
+$background-color: #e6e2d3
+$green: #4CAF50
+$red: #f44336
+$blue: #008CBA
+$black: #555555
+$brown: #b9936c
+
+/*Responsive*/
+$break-small: 360px
+$break-medium: 724px
+
+@mixin respond-to($media)
+  @if $media == handhelds
+    @media only screen and (max-width: $break-small)
+    @content
+
+  @else if $media == mid-screens
+    @media only screen and (min-width: $break-small + 1) and (max-width: $break-medium - 1)
+        @content
+
+  @else if $media == medium-screens
+    @media only screen and (min-width: $break-medium)
+      @content
+
+.grid-container
+  display: $grid
+  margin-top: 25px
+  margin-bottom: 25px
+  padding: 10px
+
+.show_container
+  display: flex
+  flex-direction: column
+  justify-content: center
+  background: $background-color
+
+.edit_container
+  display: flex
+  flex-direction: column
+  justify-content: center
+  background: $background-color
+
+.main_content
+  background: $background-color
+
+.ajaxSearch
+  display: flex
+  justify-content: center
+  grid-column-start: 4
+  grid-column-end: 5
+
+.create_field
+  margin-top: 100px
+  grid-column-start: 3
+  grid-column-end: 4
+
+/*Tables*/
+.table_header
+  text-align: left
+  font-size: $header-font
+  color: $black
+
+.table_title a
+  text-decoration: none
+  color: $blue
+  transition: color 500ms ease
+
+  &:hover
+    color: blueviolet
+    text-decoration: underline
+
+
+table
+  border-collapse: collapse
+  width: 100%
+
+th, td
+  text-align: left
+  padding: 8px
+
+tr:nth-child(even)
+  background-color: #c4b7a6
+
+th
+  background-color: $brown
+  color: white
+
+.delete_table, .edit_table
+  padding: 5px
+  border: 0px
+
+.delete_table
+  width: 85px
+
+.edit_table
+  width: 55px
+
+/*Responsive table*/
+td
+  @include respond-to(handhelds)
+    font-size: 10px
+  @include respond-to(mid-screens)
+    font-size: 15px
+  @include respond-to(medium-screens)
+    font-size: 17px
+
+/*Buttons*/
+.delete_button
+  padding: 1rem
+  border: 0
+  background: $red
+  color: white
+  text-transform: uppercase
+  font-weight: bold
+  transition: opacity 500ms ease
+
+  &:hover
+    opacity: 0.6
+    cursor: pointer
+
+.edit_button
+  padding: 1rem
+  border: 0
+  background: $blue
+  color: white
+  text-transform: uppercase
+  font-weight: bold
+  transition: opacity 500ms ease
+
+  &:hover
+    opacity: 0.6
+    cursor: pointer
+
+.edit_button-two
+  padding: 1rem
+  border: 0
+  background: $green
+  color: white
+  text-transform: uppercase
+  font-weight: bold
+  transition: opacity 500ms ease
+  margin-top: 15px
+  margin-left: 15px
+  margin-bottom: 15px
+  cursor: pointer
+
+  &:hover
+    opacity: 0.6
+    cursor: pointer
+
+.create_button
+  padding: 1rem
+  border: 0
+  background: $green
+  color: white
+  text-transform: uppercase
+  font-weight: bold
+  transition: opacity 500ms ease
+  margin-bottom: 15px
+  margin-left: 10px
+
+  &:hover
+    opacity: 0.6
+    cursor: pointer
+
+.back_button
+  padding: 1rem
+  border: 0
+  background: $black
+  color: white
+  text-transform: uppercase
+  font-weight: bold
+  transition: opacity 500ms ease
+  cursor: pointer
+  text-decoration: none
+
+  &:hover
+    opacity: 0.6
+    cursor: pointer
+
+.back
+  display: flex
+  justify-content: center
+  margin-top: 10px
+
+.search_button
+  padding: 1rem
+  background: $green
+  border: 0
+  color: white
+  text-transform: uppercase
+  font-weight: bold
+  transition: opacity 500ms ease
+  cursor: pointer
+  margin-top: 10px
+
+  &:hover
+    opacity: 0.6
+    cursor: pointer
+
+/*Search bar*/
+.search_bar
+    width: 130px
+    box-sizing: border-box
+    border: 2px solid $green
+    border-right: 0px
+    border-radius: 4px
+    margin-top: 10px
+    font-size: 16px
+    background-color: white
+    background-image: url('../../images/search.svg')
+    background-position: 10px
+    background-size: 25px
+    background-repeat: no-repeat
+    padding: 12px 20px 12px 40px
+    -webkit-transition: width 0.4s ease-in-out
+    transition: width 0.4s ease-in-out
+
+    &:focus
+      width: 18%
+
+/*Edit and create form*/
+.edit_container
+    margin-left: 15px
+
+.edit_container label
+    display: block
+    font-size: 20px
+
+.edit_header
+    display: flex
+    font-weight: bold
+    font-style: italic
+    border-bottom: 2px solid $brown
+    margin-left: 15px
+    font-size: $header-font
+    padding-bottom: 3px
+    max-width: 250px
+    justify-content: flex-end
+
+.form_description, .form_occupation, .form_title
+    width: 50%
+    margin: 8px 0
+    box-sizing: border-box
+
+    &:focus
+      border: 1px solid $blue
+
+.form_occupation, .form_title
+    padding: 10px 10px
+
+.form_description
+    padding: 10px 10px
+
+/*Flexbox show*/
+.show_header_row
+  background-color: $brown
+
+.show_header
+    display: flex
+    align-items: center
+    justify-content: center
+    font-style: italic
+
+.flex-outer
+  list-style-type: none
+  max-width: 800px
+  margin: 50px auto
+
+.flex-outer li
+  display: flex
+  flex-wrap: wrap
+  align-items: center
+
+.flex-outer > li:not(:last-child)
+  margin-bottom: 20px
+
+
+.flex-outer li label
+  padding: 8px
+  font-size: 20px
+  font-weight: bold
+  text-transform: uppercase
+
+.flex-outer li p
+  font-size: 15px
+
+.flex-outer > li > label,
+.flex-outer li p
+  flex: 1 0 120px
+
+
+.flex-outer > li > label + *
+  flex: 1 0 100px
+
+.footer-copyright
+    color: white
+    height: 3.75%
+    overflow: hidden
+    background-color: $black
+    color: #ffffff
+    position: fixed
+    bottom: 0
+    width: 100%
+    text-align: center
+
+

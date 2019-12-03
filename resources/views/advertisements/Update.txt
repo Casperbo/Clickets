@@ -1,0 +1,10 @@
+ public function update(UpdateVacanciesPost $request, vacancy $vacancy)
+    {
+        $validated = $request->validated();
+
+        $vacancy->title = $request['title'];
+        $vacancy->body = $request['body'];
+        $vacancy->save();
+
+        return redirect()->action('VacanciesController@index')->with('correct', 'Vacancy Updated');
+    }
